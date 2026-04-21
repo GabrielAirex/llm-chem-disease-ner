@@ -1,0 +1,317 @@
+# Examples for few-shot learning - TYPE 2
+# WITHOUT positions (text and type only) - sempre sem posições
+# All examples are original, not from BC5CDR, and aligned with BC5CDR annotation rules.
+
+examples_no_positions:
+  - text: "The patient developed severe allergic reaction after taking penicillin."
+    entities:
+      - text: "penicillin"
+        type: "Chemical"
+      - text: "allergic reaction"
+        type: "Disease"
+  
+  - text: "Chronic use of corticosteroids can lead to osteoporosis and hypertension."
+    entities:
+      - text: "corticosteroids"
+        type: "Chemical"
+      - text: "osteoporosis"
+        type: "Disease"
+      - text: "hypertension"
+        type: "Disease"
+  
+  - text: "Treatment with amoxicillin successfully resolved the bacterial pneumonia."
+    entities:
+      - text: "amoxicillin"
+        type: "Chemical"
+      - text: "bacterial pneumonia"
+        type: "Disease"
+  
+  - text: "The combination of warfarin and aspirin increased bleeding risk in atrial fibrillation patients."
+    entities:
+      - text: "warfarin"
+        type: "Chemical"
+      - text: "aspirin"
+        type: "Chemical"
+      - text: "atrial fibrillation"
+        type: "Disease"
+  
+  - text: "Long-term exposure to benzene has been linked to leukemia development."
+    entities:
+      - text: "benzene"
+        type: "Chemical"
+      - text: "leukemia"
+        type: "Disease"
+  
+  - text: "Patients receiving cisplatin chemotherapy often experience nephrotoxicity and hearing loss."
+    entities:
+      - text: "cisplatin"
+        type: "Chemical"
+      - text: "chemotherapy"
+        type: "Chemical"
+      - text: "nephrotoxicity"
+        type: "Disease"
+      - text: "hearing loss"
+        type: "Disease"
+  
+  - text: "Administration of digoxin requires monitoring for signs of digitalis toxicity."
+    entities:
+      - text: "digoxin"
+        type: "Chemical"
+      - text: "digitalis toxicity"
+        type: "Disease"
+  
+  - text: "The antibiotic vancomycin is effective against methicillin-resistant Staphylococcus aureus infections."
+    entities:
+      - text: "vancomycin"
+        type: "Chemical"
+      - text: "methicillin"
+        type: "Chemical"
+  
+  - text: "High doses of acetaminophen can cause acute liver failure requiring transplantation."
+    entities:
+      - text: "acetaminophen"
+        type: "Chemical"
+      - text: "acute liver failure"
+        type: "Disease"
+  
+  - text: "Patients with rheumatoid arthritis benefit from methotrexate therapy to reduce joint inflammation."
+    entities:
+      - text: "methotrexate"
+        type: "Chemical"
+      - text: "rheumatoid arthritis"
+        type: "Disease"
+  
+  - text: "Metformin is commonly prescribed for type 2 diabetes management and can help reduce cardiovascular complications."
+    entities:
+      - text: "metformin"
+        type: "Chemical"
+      - text: "type 2 diabetes"
+        type: "Disease"
+      - text: "cardiovascular complications"
+        type: "Disease"
+  
+  - text: "Anticoagulant therapy with heparin prevents deep vein thrombosis in hospitalized patients."
+    entities:
+      - text: "heparin"
+        type: "Chemical"
+      - text: "deep vein thrombosis"
+        type: "Disease"
+  
+  - text: "Insulin resistance is associated with metabolic syndrome and may require treatment with thiazolidinediones."
+    entities:
+      - text: "insulin"
+        type: "Chemical"
+      - text: "metabolic syndrome"
+        type: "Disease"
+      - text: "thiazolidinediones"
+        type: "Chemical"
+  
+  - text: "Chronic obstructive pulmonary disease patients often use bronchodilators like albuterol to improve breathing."
+    entities:
+      - text: "chronic obstructive pulmonary disease"
+        type: "Disease"
+      - text: "bronchodilators"
+        type: "Chemical"
+      - text: "albuterol"
+        type: "Chemical"
+  
+  - text: "Proton pump inhibitors such as omeprazole are used to treat gastroesophageal reflux disease and peptic ulcers."
+    entities:
+      - text: "proton pump inhibitors"
+        type: "Chemical"
+      - text: "omeprazole"
+        type: "Chemical"
+      - text: "gastroesophageal reflux disease"
+        type: "Disease"
+      - text: "peptic ulcers"
+        type: "Disease"
+  
+  - text: "Antidepressants including fluoxetine and sertraline are effective for treating major depressive disorder."
+    entities:
+      - text: "antidepressants"
+        type: "Chemical"
+      - text: "fluoxetine"
+        type: "Chemical"
+      - text: "sertraline"
+        type: "Chemical"
+      - text: "major depressive disorder"
+        type: "Disease"
+  
+  - text: "Beta-blockers like propranolol help manage hypertension and reduce the risk of myocardial infarction."
+    entities:
+      - text: "beta-blockers"
+        type: "Chemical"
+      - text: "propranolol"
+        type: "Chemical"
+      - text: "hypertension"
+        type: "Disease"
+      - text: "myocardial infarction"
+        type: "Disease"
+  
+  - text: "Statins including atorvastatin and simvastatin lower cholesterol levels and prevent coronary artery disease."
+    entities:
+      - text: "statins"
+        type: "Chemical"
+      - text: "atorvastatin"
+        type: "Chemical"
+      - text: "simvastatin"
+        type: "Chemical"
+      - text: "coronary artery disease"
+        type: "Disease"
+  
+  - text: "Angiotensin-converting enzyme inhibitors reduce blood pressure and protect against diabetic nephropathy."
+    entities:
+      - text: "angiotensin-converting enzyme inhibitors"
+        type: "Chemical"
+      - text: "diabetic nephropathy"
+        type: "Disease"
+  
+  - text: "Calcium channel blockers such as amlodipine are prescribed for angina and hypertension management."
+    entities:
+      - text: "calcium channel blockers"
+        type: "Chemical"
+      - text: "amlodipine"
+        type: "Chemical"
+      - text: "angina"
+        type: "Disease"
+      - text: "hypertension"
+        type: "Disease"
+  
+  - text: "Antipsychotic medications like risperidone and olanzapine treat schizophrenia and bipolar disorder."
+    entities:
+      - text: "antipsychotic medications"
+        type: "Chemical"
+      - text: "risperidone"
+        type: "Chemical"
+      - text: "olanzapine"
+        type: "Chemical"
+      - text: "schizophrenia"
+        type: "Disease"
+      - text: "bipolar disorder"
+        type: "Disease"
+  
+  - text: "Immunosuppressive drugs including cyclosporine prevent organ rejection after transplantation surgery."
+    entities:
+      - text: "immunosuppressive drugs"
+        type: "Chemical"
+      - text: "cyclosporine"
+        type: "Chemical"
+  
+  - text: "Antiviral medications such as acyclovir and valacyclovir are used to treat herpes simplex infections."
+    entities:
+      - text: "antiviral medications"
+        type: "Chemical"
+      - text: "acyclovir"
+        type: "Chemical"
+      - text: "valacyclovir"
+        type: "Chemical"
+      - text: "herpes simplex"
+        type: "Disease"
+  
+  - text: "Chemotherapy agents like doxorubicin and paclitaxel are effective against various types of cancer."
+    entities:
+      - text: "chemotherapy agents"
+        type: "Chemical"
+      - text: "doxorubicin"
+        type: "Chemical"
+      - text: "paclitaxel"
+        type: "Chemical"
+      - text: "cancer"
+        type: "Disease"
+  
+  - text: "Antibiotics including ciprofloxacin and levofloxacin treat bacterial infections like pneumonia and urinary tract infections."
+    entities:
+      - text: "antibiotics"
+        type: "Chemical"
+      - text: "ciprofloxacin"
+        type: "Chemical"
+      - text: "levofloxacin"
+        type: "Chemical"
+      - text: "pneumonia"
+        type: "Disease"
+  
+  - text: "Nonsteroidal anti-inflammatory drugs such as ibuprofen and naproxen reduce inflammation and pain in arthritis patients."
+    entities:
+      - text: "nonsteroidal anti-inflammatory drugs"
+        type: "Chemical"
+      - text: "ibuprofen"
+        type: "Chemical"
+      - text: "naproxen"
+        type: "Chemical"
+      - text: "arthritis"
+        type: "Disease"
+  
+  - text: "Antihistamines like diphenhydramine and loratadine relieve allergy symptoms including rhinitis and urticaria."
+    entities:
+      - text: "antihistamines"
+        type: "Chemical"
+      - text: "diphenhydramine"
+        type: "Chemical"
+      - text: "loratadine"
+        type: "Chemical"
+      - text: "allergy"
+        type: "Disease"
+      - text: "rhinitis"
+        type: "Disease"
+      - text: "urticaria"
+        type: "Disease"
+  
+  - text: "Anticonvulsant medications including phenytoin and carbamazepine control seizures in epilepsy patients."
+    entities:
+      - text: "anticonvulsant medications"
+        type: "Chemical"
+      - text: "phenytoin"
+        type: "Chemical"
+      - text: "carbamazepine"
+        type: "Chemical"
+      - text: "epilepsy"
+        type: "Disease"
+  
+  - text: "Diuretics such as furosemide and hydrochlorothiazide help manage edema and congestive heart failure."
+    entities:
+      - text: "diuretics"
+        type: "Chemical"
+      - text: "furosemide"
+        type: "Chemical"
+      - text: "hydrochlorothiazide"
+        type: "Chemical"
+      - text: "edema"
+        type: "Disease"
+      - text: "congestive heart failure"
+        type: "Disease"
+  
+  - text: "Antiplatelet drugs including clopidogrel and ticagrelor prevent blood clots and reduce stroke risk."
+    entities:
+      - text: "antiplatelet drugs"
+        type: "Chemical"
+      - text: "clopidogrel"
+        type: "Chemical"
+      - text: "ticagrelor"
+        type: "Chemical"
+      - text: "stroke"
+        type: "Disease"
+  
+  - text: "Hormone replacement therapy with estrogen and progesterone treats menopausal symptoms and osteoporosis."
+    entities:
+      - text: "hormone replacement therapy"
+        type: "Chemical"
+      - text: "estrogen"
+        type: "Chemical"
+      - text: "progesterone"
+        type: "Chemical"
+      - text: "menopausal symptoms"
+        type: "Disease"
+      - text: "osteoporosis"
+        type: "Disease"
+  
+  - text: "Antifungal medications like fluconazole and itraconazole treat candidiasis and other fungal infections."
+    entities:
+      - text: "antifungal medications"
+        type: "Chemical"
+      - text: "fluconazole"
+        type: "Chemical"
+      - text: "itraconazole"
+        type: "Chemical"
+      - text: "candidiasis"
+        type: "Disease"
+

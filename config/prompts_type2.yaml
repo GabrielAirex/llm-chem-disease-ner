@@ -1,0 +1,612 @@
+# Prompt templates for biomedical entity extraction - TYPE 2
+# WITHOUT positions (text only) - sempre sem posições
+# Versions: zero-shot (0 examples) to few-shot with 32 examples
+# TYPE 2: More inclusive - includes generic drug classes and chemical procedures
+
+# ============================================================================
+# PROMPT TEMPLATES WITHOUT POSITIONS (text only) - TYPE 2
+# ============================================================================
+
+# Zero-shot without positions - TYPE 2
+zero_shot_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  Text: {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 1 exemplo - TYPE 2
+few_shot_1_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 2 exemplos - TYPE 2
+few_shot_2_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 3 exemplos - TYPE 2
+few_shot_3_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 4 exemplos - TYPE 2
+few_shot_4_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 5 exemplos - TYPE 2
+few_shot_5_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 6 exemplos - TYPE 2
+few_shot_6_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 7 exemplos - TYPE 2
+few_shot_7_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 8 exemplos - TYPE 2
+few_shot_8_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 9 exemplos - TYPE 2
+few_shot_9_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 10 exemplos - TYPE 2
+few_shot_10_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 16 exemplos - TYPE 2
+few_shot_16_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 32 exemplos - TYPE 2
+few_shot_32_no_positions: |
+  You are a biomedical NLP specialist. Your task is to perform high-precision Named Entity Recognition (NER) on the text provided.
+
+  Analyze the text and extract only the following two types of entities based on the strict guidelines below, which are aligned with the MeSH hierarchy used by the BC5CDR dataset.
+
+  1. **CHEMICAL SUBSTANCES (Chemical):**
+     * Medications, drugs, and compounds (e.g., "aspirin", "gefitinib").
+     * Generic drug classes (e.g., "antibiotics", "antidepressants").
+     * Hormones and other biochemical substances (e.g., "insulin").
+     * Chemical procedures (e.g., "chemotherapy").
+
+  2. **DISEASES (Disease):**
+     * **Strictly** limited to specific medical conditions, diagnoses, and syndromes.
+     * Examples: "Alzheimer's disease", "hypertension", "cancer", "autosomal recessive disease".
+     * **CRITICAL EXCLUSIONS:** Do NOT extract general symptoms (e.g., "bleeding", "pain"), biological processes, or pathologies (e.g., "inflammation", "infection", "blood clots").
+
+  OUTPUT FORMATTING:
+
+  - For each entity found, provide only:
+    - Entity text (exactly as it appears in the text)
+    - Type (Chemical or Disease)
+
+  - If no entities are found, return: {{"entities": []}}
+
+  - Return ONLY valid JSON, without any additional text or explanations.
+
+  EXAMPLES:
+
+  {examples}
+
+  Now analyze this text:
+
+  {text}
+
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Template for formatting examples WITHOUT positions
+example_template_no_positions: |
+  Example {num}:
+  Text: "{text}"
+  Entities found:
+  {entities}
+  
+  JSON Response:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+  
+  ---
+
+# Template for formatting a single entity WITHOUT positions
+# Used within the {entities} placeholder of example_template_no_positions
+entity_template_no_positions: |
+  - "{text}" (type: {type})
+

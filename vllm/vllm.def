@@ -1,0 +1,96 @@
+Bootstrap: docker
+From: nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04
+
+%environment
+    export DEBIAN_FRONTEND=noninteractive
+    export PYTHONUNBUFFERED=1
+    export CUDA_HOME=/usr/local/cuda
+    export PATH=$CUDA_HOME/bin:$PATH
+    export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+    
+    # Hugging Face (overridden at runtime via --env in the SBATCH script)
+    export HF_HOME=/tmp/hf_cache
+    export TRANSFORMERS_CACHE=/tmp/hf_cache
+    export VLLM_CACHE_ROOT=/tmp/vllm_cache
+    
+    # Desabilitar Flash Attention v2 por padrão (para GPUs sem compute capability >= 8)
+    export VLLM_USE_FLASH_ATTENTION=0
+    
+    # Python
+    export PYTHONPATH=/opt/vllm:$PYTHONPATH
+
+%post
+    # Atualizar sistema
+    apt-get update && apt-get install -y \
+        python3.11 \
+        python3.11-dev \
+        python3-pip \
+        git \
+        wget \
+        curl \
+        build-essential \
+        && rm -rf /var/lib/apt/lists/*
+    
+    # Criar link simbólico para python
+    ln -sf /usr/bin/python3.11 /usr/bin/python
+    ln -sf /usr/bin/python3.11 /usr/bin/python3
+    
+    # Atualizar pip
+    python3 -m pip install --upgrade pip setuptools wheel
+    
+    # Instalar dependências básicas
+    pip3 install --no-cache-dir \
+        torch \
+        torchvision \
+        torchaudio \
+        --index-url https://download.pytorch.org/whl/cu121
+    
+    # Instalar pyairports ANTES do vLLM (necessário para guided decoding)
+    # O vLLM tenta importar outlines.types que requer pyairports mesmo quando não usado
+    # Tentar instalar do PyPI, se falhar, criar stub mínimo
+    pip3 install --no-cache-dir pyairports || \
+    (mkdir -p /usr/local/lib/python3.11/dist-packages/pyairports && \
+     echo "AIRPORT_LIST = []" > /usr/local/lib/python3.11/dist-packages/pyairports/airports.py && \
+     echo "" > /usr/local/lib/python3.11/dist-packages/pyairports/__init__.py && \
+     echo "✅ Criado stub de pyairports")
+    
+    # Instalar vLLM e dependências
+    pip3 install --no-cache-dir \
+        vllm==0.6.0 \
+        transformers \
+        accelerate \
+        huggingface-hub \
+        openai \
+        fastapi \
+        uvicorn \
+        pydantic
+    
+    # Verificar se pyairports ainda está disponível após instalar vLLM
+    python3 -c "import pyairports; print('✅ pyairports instalado corretamente')" || echo "⚠️ Aviso: pyairports pode ter sido removido"
+    
+    # Criar diretórios de cache temporários
+    mkdir -p /tmp/hf_cache /tmp/vllm_cache
+    
+    # Limpar cache pip
+    pip3 cache purge
+
+%runscript
+    exec "$@"
+
+%labels
+    Version 1.0
+    Description vLLM Singularity Image for BioNER_llm
+    CUDA 12.1.0
+    Python 3.11
+
+%help
+    Esta imagem Singularity contém vLLM configurado para uso no supercomputador.
+    
+    Uso:
+        singularity exec vllm.sif vllm serve meta-llama/Llama-3.2-3B --host 0.0.0.0 --port 8000
+    
+    Variáveis de ambiente importantes:
+        VLLM_USE_FLASH_ATTENTION=0  # Desabilita Flash Attention v2 (para GPUs antigas)
+        HF_HOME                     # Cache do Hugging Face
+        VLLM_CACHE_ROOT             # Cache do vLLM
+

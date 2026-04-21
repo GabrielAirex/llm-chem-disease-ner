@@ -1,0 +1,194 @@
+====================================================================================================
+ANÁLISE DETALHADA - COMPARAÇÃO DE ESTRATÉGIAS DE PROMPT
+====================================================================================================
+Data de geração: 2025-01-01 14:00:00
+Modelo: modelo_exemplo
+Tipo de Prompt: type2
+
+====================================================================================================
+RESUMO EXECUTIVO
+====================================================================================================
+
+Métricas Gerais por Estratégia (Macro-Average)
+----------------------------------------------------------------------------------------------------
+Estratégia      Artigos    Chem P     Chem R     Chem F1    Dis P      Dis R      Dis F1     Overall F1
+----------------------------------------------------------------------------------------------------
+zero_shot       3          0.5000     0.6667     0.5460     0.6667     0.5000     0.5556     0.5522
+examples_1      3          1.0000     1.0000     1.0000     1.0000     1.0000     1.0000     1.0000
+
+Métricas Micro (Agregado)
+----------------------------------------------------------------------------------------------------
+Estratégia      Chem P     Chem R     Chem F1    Dis P      Dis R      Dis F1     Overall F1
+----------------------------------------------------------------------------------------------------
+zero_shot       0.5000     0.5714     0.5333     0.6000     0.5000     0.5455     0.5385
+examples_1      1.0000     1.0000     1.0000     1.0000     1.0000     1.0000     1.0000
+
+====================================================================================================
+ANÁLISE DETALHADA POR ESTRATÉGIA
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+ESTRATÉGIA: ZERO SHOT
+----------------------------------------------------------------------------------------------------
+
+Informações Básicas:
+  Total de artigos: 3
+  Total de entidades Gold: 13 (Chemicals: 7, Diseases: 6)
+  Total de entidades Preditas: 13 (Chemicals: 8, Diseases: 5)
+
+Métricas - Chemicals:
+  Precision (Macro): 0.5000 (Mediana: 0.5000, Std: 0.1667)
+  Recall (Macro):    0.6667 (Mediana: 0.5000, Std: 0.2887)
+  F1 (Macro):         0.5460 (Mediana: 0.5714, Std: 0.1360)
+  Precision (Micro):       0.5000
+  Recall (Micro):          0.5714
+  F1 (Micro):              0.5333
+  TP: 4, FP: 4, FN: 3
+
+Métricas - Diseases:
+  Precision (Macro): 0.6667 (Mediana: 0.5000, Std: 0.2887)
+  Recall (Macro):    0.5000 (Mediana: 0.5000, Std: 0.0000)
+  F1 (Macro):         0.5556 (Mediana: 0.5000, Std: 0.0962)
+  Precision (Micro):       0.6000
+  Recall (Micro):          0.5000
+  F1 (Micro):              0.5455
+  TP: 3, FP: 2, FN: 3
+
+Métricas - Overall:
+  Precision (Macro): 0.5556 (Mediana: 0.6000, Std: 0.1111)
+  Recall (Macro):    0.5556 (Mediana: 0.5000, Std: 0.0962)
+  F1 (Macro):         0.5522 (Mediana: 0.5455, Std: 0.0626)
+  Precision (Micro):       0.5385
+  Recall (Micro):          0.5385
+  F1 (Micro):              0.5385
+  TP: 7, FP: 6, FN: 6
+
+----------------------------------------------------------------------------------------------------
+ESTRATÉGIA: EXAMPLES 1
+----------------------------------------------------------------------------------------------------
+
+Informações Básicas:
+  Total de artigos: 3
+  Total de entidades Gold: 13 (Chemicals: 7, Diseases: 6)
+  Total de entidades Preditas: 13 (Chemicals: 7, Diseases: 6)
+
+Métricas - Chemicals:
+  Precision (Macro): 1.0000 (Mediana: 1.0000, Std: 0.0000)
+  Recall (Macro):    1.0000 (Mediana: 1.0000, Std: 0.0000)
+  F1 (Macro):         1.0000 (Mediana: 1.0000, Std: 0.0000)
+  Precision (Micro):       1.0000
+  Recall (Micro):          1.0000
+  F1 (Micro):              1.0000
+  TP: 7, FP: 0, FN: 0
+
+Métricas - Diseases:
+  Precision (Macro): 1.0000 (Mediana: 1.0000, Std: 0.0000)
+  Recall (Macro):    1.0000 (Mediana: 1.0000, Std: 0.0000)
+  F1 (Macro):         1.0000 (Mediana: 1.0000, Std: 0.0000)
+  Precision (Micro):       1.0000
+  Recall (Micro):          1.0000
+  F1 (Micro):              1.0000
+  TP: 6, FP: 0, FN: 0
+
+Métricas - Overall:
+  Precision (Macro): 1.0000 (Mediana: 1.0000, Std: 0.0000)
+  Recall (Macro):    1.0000 (Mediana: 1.0000, Std: 0.0000)
+  F1 (Macro):         1.0000 (Mediana: 1.0000, Std: 0.0000)
+  Precision (Micro):       1.0000
+  Recall (Micro):          1.0000
+  F1 (Micro):              1.0000
+  TP: 13, FP: 0, FN: 0
+
+====================================================================================================
+COMPARAÇÃO ENTRE ESTRATÉGIAS
+====================================================================================================
+
+Melhor Estratégia por Métrica:
+----------------------------------------------------------------------------------------------------
+  Chemicals F1 (Macro)          : examples_1      (1.0000)
+  Chemicals F1 (Micro)          : examples_1      (1.0000)
+  Diseases F1 (Macro)           : examples_1      (1.0000)
+  Diseases F1 (Micro)           : examples_1      (1.0000)
+  Overall F1 (Macro)            : examples_1      (1.0000)
+  Overall F1 (Micro)            : examples_1      (1.0000)
+
+Análise de Tendências:
+----------------------------------------------------------------------------------------------------
+Evolução do Overall F1 (Micro/Agregado) por número de exemplos:
+  zero_shot       ( 0 exemplos): 0.5385 ██████████
+  examples_1      ( 1 exemplos): 1.0000 ████████████████████
+
+====================================================================================================
+ANÁLISE DETALHADA DE FP, FN E TP
+====================================================================================================
+
+FALSOS POSITIVOS (FP) - Análise por Tipo:
+----------------------------------------------------------------------------------------------------
+  Chemicals FP:
+    Maior: zero_shot com 4 FP (100.00% do total)
+    Menor: examples_1 com 0 FP (0.00% do total)
+
+  Diseases FP:
+    Maior: zero_shot com 2 FP (100.00% do total)
+    Menor: examples_1 com 0 FP (0.00% do total)
+
+  ⚠️  Chemicals geram MAIS falsos positivos em média (4 vs 2)
+
+Tabela de FP por Estratégia:
+----------------------------------------------------------------------------------------------------
+Estratégia      Chem FP      Dis FP       Total FP     Chem %     Dis %
+----------------------------------------------------------------------------------------------------
+zero_shot       4            2            6            66.67      33.33
+examples_1      0            0            0            0.00       0.00
+
+Ranking de Falsos Positivos (FP) - Do maior para o menor:
+----------------------------------------------------------------------------------------------------
+  1. zero_shot        : 6 FP (Chem: 4, Dis: 2)
+  2. examples_1       : 0 FP (Chem: 0, Dis: 0)
+
+FALSOS NEGATIVOS (FN) - Análise por Tipo:
+----------------------------------------------------------------------------------------------------
+  Chemicals FN:
+    Maior: zero_shot com 3 FN (100.00% do total)
+    Menor: examples_1 com 0 FN (0.00% do total)
+
+  Diseases FN:
+    Maior: zero_shot com 3 FN (100.00% do total)
+    Menor: examples_1 com 0 FN (0.00% do total)
+
+  ⚠️  Chemicals e Diseases têm o mesmo número de falsos negativos em média (3 cada)
+
+Ranking de Falsos Negativos (FN) - Do maior para o menor:
+----------------------------------------------------------------------------------------------------
+  1. zero_shot        : 6 FN (Chem: 3, Dis: 3)
+  2. examples_1       : 0 FN (Chem: 0, Dis: 0)
+
+TRUE POSITIVES (TP) - Análise por Tipo:
+----------------------------------------------------------------------------------------------------
+  Chemicals TP:
+    Maior: examples_1 com 7 TP
+    Menor: zero_shot com 4 TP
+
+  Diseases TP:
+    Maior: examples_1 com 6 TP
+    Menor: zero_shot com 3 TP
+
+Ranking de True Positives (TP) - Do maior para o menor:
+----------------------------------------------------------------------------------------------------
+  1. examples_1       : 13 TP (Chem: 7, Dis: 6)
+  2. zero_shot        : 7 TP (Chem: 4, Dis: 3)
+
+Resumo Comparativo - FP vs FN vs TP:
+----------------------------------------------------------------------------------------------------
+Estratégia      TP           FP           FN           TP/(TP+FP)      TP/(TP+FN)
+----------------------------------------------------------------------------------------------------
+zero_shot       7            6            6            0.5385          0.5385
+examples_1      13           0            0            1.0000          1.0000
+
+====================================================================================================
+ESTATÍSTICAS FINAIS
+====================================================================================================
+
+Total de artigos analisados: 6
+Total de entidades Gold: 26
+Total de entidades Preditas: 26

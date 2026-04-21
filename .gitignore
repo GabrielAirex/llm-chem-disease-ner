@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv*/
+.conda/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Dados e resultados (não subir)
+dataset/
+datasets/
+indicios_encontrados/
+extractions/
+outputs/
+results/
+checkpoints/
+reports/
+
+# Modelos e binários grandes
+*.pkl
+*.pickle
+*.h5
+*.pt
+*.pth
+*.bin
+*.sif
+*.deb
+*.zip
+*.tar
+*.tar.gz
+
+# Dados gerados / resultados
+*.csv
+*.json
+*.txt
+
+# Mídia
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.pdf
+
+# Exceções: imagens dos resultados, dissertação, exemplos e gold
+!figures/
+!figures/*.png
+!dissertation/
+!dissertation/*.pdf
+!examples/
+!examples/**
+!examples/**/*.json
+!examples/**/*.csv
+!examples/**/*.txt
+!data/
+!data/cdr_gold.csv
+
+# Misc
+*.log
+logs/
+tmp/
+temp/
+.cache/
+node_modules/

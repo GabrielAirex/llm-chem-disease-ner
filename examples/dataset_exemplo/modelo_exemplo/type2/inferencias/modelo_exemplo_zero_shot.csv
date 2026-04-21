@@ -1,0 +1,4 @@
+pmid,text,chemicals_list,diseases_list,num_chemicals,num_diseases,processing_time,timestamp,model,prompt_strategy,num_examples
+2004,"Electrocardiographic changes and cardiac arrhythmias in patients receiving psychotropic drugs...","[""thioridazine"", ""lidocaine"", ""psychotropic drugs""]","[""ventricular tachycardia"", ""arrhythmias""]",3,2,8.41,20250101_120000,org/modelo-exemplo,zero-shot,0
+26094,"Antihypertensive drugs and depression: a reappraisal...","[""methyldopa"", ""antihypertensive drugs""]","[""depression""]",2,1,5.87,20250101_120018,org/modelo-exemplo,zero-shot,0
+56789,"Lithium-induced tremor and its management in patients with bipolar disorder...","[""lithium"", ""propranolol"", ""beta-blockers""]","[""tremor"", ""adverse effect""]",3,2,6.23,20250101_120035,org/modelo-exemplo,zero-shot,0

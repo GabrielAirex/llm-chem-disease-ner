@@ -1,0 +1,71 @@
+# Configuração da API BioNER_llm
+
+# Configurações LLM
+llm:
+  llm_host: "http://localhost:8002"  # Túnel SSH para vLLM (porta local 8002 -> porta 8002 no supercomputador - h2o-danube3-4b-chat)
+  timeout: 180  # Aumentado para HPC
+  max_retries: 3
+  api_type: "openai"  # "ollama" ou "openai" (para vLLM)
+  base_url: "http://localhost:8000/v1"  # URL base para API OpenAI-compatible (vLLM) - h2o-danube3-4b-chat
+  model_name: "meta-llama/Meta-Llama-3.1-8B-Instruct"  # Nome do modelo no vLLM (padrão: h2o-danube3-4b-chat)
+
+# Configuração de múltiplos modelos em portas diferentes
+# Permite usar múltiplos modelos simultaneamente
+llm_ports:
+  
+  "Qwen/Qwen2.5-32B-Instruct":  # Qwen2.5-32B-Instruct
+    host: "localhost"
+    port: 8033  # Porta configurada no script qwen2.5-32b-instruct-a100_vllm.sh
+    timeout: 300  # Timeout maior para modelo grande
+    max_retries: 3
+  
+
+
+# Configurações padrão para LLM
+llm_defaults:
+  temperature: 0.1
+  max_tokens: 600  # Reduzido de 500 para 400 para dar mais espaço ao prompt com muitos exemplos (32 exemplos ~2400 tokens)
+  timeout: 120  # Aumentado para HPC
+  max_retries: 3
+
+# Configuração de separação system/user para chat templates
+# Quando ativado, separa o prompt type2 em:
+# - system: instruções gerais (e exemplos, se few-shot)
+# - user: apenas o texto a analisar
+# Útil para modelos que requerem chat templates específicos (ex: Llama 3)
+chat_template_separation:
+  # Configuração global (padrão: false)
+  enabled: false
+  # Configuração por modelo (sobrescreve a global)
+  models:
+    "aaditya/Llama3-OpenBioLLM-8B": true
+    # Adicione outros modelos aqui conforme necessário
+    # "outro/modelo": true
+  
+
+
+prompts:
+  strategy: "few-shot"  # zero-shot, few-shot, chain-of-thought
+  num_examples: 3  # Número de exemplos para few-shot (1-10)
+  max_text_length: 4000  # Protocolo da dissertação; cobre o texto mais longo do BC5CDR (~3908 chars)
+  use_positions: false  # Sempre false - não extrai posições (start/end). Estratégia with_positions foi removida.
+
+
+storage:
+  save_responses: true  # Salvar respostas automaticamente
+  output_dir: "indicios_encontrados"  # Pasta para salvar respostas
+  create_dir_if_not_exists: true  # Criar pasta se não existir
+  filename_format: "extraction_{timestamp}_{hash}.json"  # Formato do nome do arquivo
+  include_metadata: true  # Incluir metadados (timestamp, modelo, etc)
+
+api:
+  host: "0.0.0.0"
+  port: 8001
+  debug: true
+  title: "BioNER_llm API"
+  version: "1.0.0"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "bioner_llm.log"

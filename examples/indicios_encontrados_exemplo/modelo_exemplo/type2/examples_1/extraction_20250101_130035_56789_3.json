@@ -1,0 +1,19 @@
+{
+  "pmid": "56789",
+  "text": "Lithium-induced tremor and its management in patients with bipolar disorder.. Lithium carbonate remains a first-line treatment for bipolar disorder. Fine tremor is the most common adverse effect, affecting up to 65% of patients. Beta-blockers such as propranolol have been used to manage lithium-induced tremor, with good tolerability in most cases.",
+  "entities": {
+    "chemicals": [
+      {"text": "lithium carbonate", "type": "Chemical"},
+      {"text": "propranolol", "type": "Chemical"}
+    ],
+    "diseases": [
+      {"text": "bipolar disorder", "type": "Disease"},
+      {"text": "tremor", "type": "Disease"}
+    ]
+  },
+  "processing_time": 7.48,
+  "timestamp": "20250101_130035",
+  "model": "org/modelo-exemplo",
+  "prompt_strategy": "few-shot",
+  "num_examples": 1
+}

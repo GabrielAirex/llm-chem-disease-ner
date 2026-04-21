@@ -1,0 +1,598 @@
+# Prompt templates for biomedical entity extraction
+# WITHOUT positions (text only) - sempre sem posições
+# Versions: zero-shot (0 examples) to few-shot with 32 examples
+
+# ============================================================================
+# PROMPT TEMPLATES WITHOUT POSITIONS (text only)
+# ============================================================================
+
+# Zero-shot without positions
+zero_shot_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  Text: {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 1 exemplo
+few_shot_1_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLE:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 2 exemplos
+few_shot_2_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 3 exemplos
+few_shot_3_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 4 exemplos
+few_shot_4_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 5 exemplos
+few_shot_5_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 6 exemplos
+few_shot_6_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 7 exemplos
+few_shot_7_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 8 exemplos
+few_shot_8_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 9 exemplos
+few_shot_9_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 10 exemplos
+few_shot_10_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 16 exemplos
+few_shot_16_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Few-shot without positions - 32 exemplos
+few_shot_32_no_positions: |
+  You are a biomedical NLP specialist. Analyze the text below and extract:
+  
+  1. CHEMICAL SUBSTANCES (Chemical): medications, compounds, drugs, brand names, chemical formulas
+  2. DISEASES (Disease): medical conditions, symptoms, diagnoses, syndromes, pathologies
+  
+  For each entity found, provide only:
+  - Entity text (exactly as it appears in the text)
+  - Type (Chemical or Disease)
+  
+  IMPORTANT:
+  - If no entities are found, return: {{"entities": []}}
+  - Return ONLY valid JSON, without any additional text
+  - Keep the entity text exactly as it appears in the original text
+  - Extract complete compound entities when medically meaningful
+  
+  EXAMPLES:
+  {examples}
+  
+  Now analyze this text:
+  {text}
+  
+  Respond in JSON format:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+
+# Template for formatting examples WITH positions
+example_template_with_positions: |
+  Example {num}:
+  Text: "{text}"
+  Entities found:
+  {entities}
+  
+  JSON Response:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "start": start_position,
+        "end": end_position,
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+  
+  ---
+
+# Template for formatting examples WITHOUT positions
+example_template_no_positions: |
+  Example {num}:
+  Text: "{text}"
+  Entities found:
+  {entities}
+  
+  JSON Response:
+  {{
+    "entities": [
+      {{
+        "text": "entity name",
+        "type": "Chemical" or "Disease"
+      }}
+    ]
+  }}
+  
+  ---
+
+# Template for formatting a single entity WITH positions
+# Used within the {entities} placeholder of example_template_with_positions
+entity_template_with_positions: |
+  - "{text}" (type: {type}, position: {start}-{end})
+
+# Template for formatting a single entity WITHOUT positions
+# Used within the {entities} placeholder of example_template_no_positions
+entity_template_no_positions: |
+  - "{text}" (type: {type})
+
+# Additional instructions to improve extraction quality
+additional_instructions: |
+  IMPORTANT INSTRUCTIONS:
+  
+  1. POSITION ACCURACY (only for flow WITH positions):
+     - Start and end positions must be based on character indices (0-indexed)
+     - The "end" value must be exclusive (does not include the character at position end)
+     - Example: If "aspirin" is at positions 10-18, then start=10, end=18
+  
+  2. OVERLAPPING ENTITIES:
+     - If two entities partially overlap, extract both
+     - Example: "lung cancer" may contain "cancer" (Disease) and "lung cancer" (Disease)
+  
+  3. COMPOUND ENTITIES:
+     - Extract the complete entity when medically meaningful
+     - Example: "acetylsalicylic acid" should be extracted as a single Chemical entity
+  
+  4. CASES WITHOUT ENTITIES:
+     - If there are no entities in the text, return: {{"entities": []}}
+     - Do not invent entities that do not exist in the text
+  
+  5. JSON VALIDATION:
+     - Return ONLY valid JSON, without any additional text before or after
+     - Use double quotes for JSON strings
+     - Numeric values (start, end) must be integers without quotes
+  
+  6. ENTITY TYPES:
+     - Chemical: includes brand names, generics, chemical formulas, compounds
+     - Disease: includes conditions, syndromes, symptoms, diagnoses, pathologies
+  
+  7. NORMALIZATION:
+     - Keep the text exactly as it appears in the original text
+     - Preserve original capitalization
+     - Do not normalize or expand abbreviations unless necessary for identification
+
+# Concrete example of formatting WITH positions
+example_format_with_positions: |
+  Example 1:
+  Text: "The patient was treated with aspirin for headache."
+  Entities found:
+  - "aspirin" (type: Chemical, position: 28-35)
+  - "headache" (type: Disease, position: 40-48)
+  
+  JSON Response:
+  {{
+    "entities": [
+      {{
+        "text": "aspirin",
+        "start": 28,
+        "end": 35,
+        "type": "Chemical"
+      }},
+      {{
+        "text": "headache",
+        "start": 40,
+        "end": 48,
+        "type": "Disease"
+      }}
+    ]
+  }}
+
+# Concrete example of formatting WITHOUT positions
+example_format_no_positions: |
+  Example 1:
+  Text: "The patient was treated with aspirin for headache."
+  Entities found:
+  - "aspirin" (type: Chemical)
+  - "headache" (type: Disease)
+  
+  JSON Response:
+  {{
+    "entities": [
+      {{
+        "text": "aspirin",
+        "type": "Chemical"
+      }},
+      {{
+        "text": "headache",
+        "type": "Disease"
+      }}
+    ]
+  }}
+
+# ============================================================================
+# USAGE DOCUMENTATION
+# ============================================================================
+
+# How to use the templates:
+#
+# 1. MAIN PROMPTS:
+#    - zero_shot_no_positions: For extraction without examples, without positions
+#    - few_shot_N_no_positions: For extraction with N examples (1-10, 16, 32), without positions
+#
+# 2. EXAMPLE TEMPLATES:
+#    - example_template_no_positions: Formats a complete example without positions
+#    - entity_template_no_positions: Formats a single entity without positions
+#
+# 3. CONCRETE EXAMPLES:
+#    - example_format_no_positions: Complete formatting example without positions
+#
+# 4. ADDITIONAL INSTRUCTIONS:
+#    - additional_instructions: Detailed instructions about special cases
+#
+# Template variables:
+# - {text}: Text to be analyzed
+# - {examples}: Formatted examples (for few-shot)
+# - {num}: Example number (for example templates)
+# - {entities}: List of formatted entities (for example templates)
+# - {text}: Entity text (for entity templates)
+# - {type}: Entity type (Chemical or Disease)
+# Important notes:
+# - All templates use YAML formatting with pipe (|) to preserve line breaks
+# - Double braces {{ }} are used to escape JSON braces in templates
+# - Templates are designed to be used with template libraries like Jinja2
+# - Templates extract entities WITHOUT positions (text only)

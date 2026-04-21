@@ -1,0 +1,18 @@
+{
+  "pmid": "26094",
+  "text": "Antihypertensive drugs and depression: a reappraisal.. The results showed a high prevalence of depression in both groups of patients. Hypertensive patients with psychiatric histories had a higher prevalence of depression. This was accounted for by a significant number of depressions occurring in methyldopa treated patients with psychiatric histories.",
+  "entities": {
+    "chemicals": [
+      {"text": "methyldopa", "type": "Chemical"}
+    ],
+    "diseases": [
+      {"text": "depression", "type": "Disease"},
+      {"text": "hypertension", "type": "Disease"}
+    ]
+  },
+  "processing_time": 6.14,
+  "timestamp": "20250101_130018",
+  "model": "org/modelo-exemplo",
+  "prompt_strategy": "few-shot",
+  "num_examples": 1
+}

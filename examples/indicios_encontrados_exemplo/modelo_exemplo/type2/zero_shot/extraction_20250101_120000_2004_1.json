@@ -1,0 +1,20 @@
+{
+  "pmid": "2004",
+  "text": "Electrocardiographic changes and cardiac arrhythmias in patients receiving psychotropic drugs.. Eight patients had cardiac manifestations while taking psychotropic drugs, either phenothiazines or tricyclic antidepressants. Mellaril (thioridazine) appeared to be responsible for five cases of ventricular tachycardia. The ventricular arrhythmias responded to intravenous administration of lidocaine and to direct current electric shock; intravenous administration of propranolol combined with ventricular pacing in one.",
+  "entities": {
+    "chemicals": [
+      {"text": "thioridazine", "type": "Chemical"},
+      {"text": "lidocaine", "type": "Chemical"},
+      {"text": "psychotropic drugs", "type": "Chemical"}
+    ],
+    "diseases": [
+      {"text": "ventricular tachycardia", "type": "Disease"},
+      {"text": "arrhythmias", "type": "Disease"}
+    ]
+  },
+  "processing_time": 8.41,
+  "timestamp": "20250101_120000",
+  "model": "org/modelo-exemplo",
+  "prompt_strategy": "zero-shot",
+  "num_examples": 0
+}
